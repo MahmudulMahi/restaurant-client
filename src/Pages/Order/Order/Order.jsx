@@ -7,12 +7,13 @@ import useMenu from '../../../hooks/useMenu'
 
 import OrderTab from '../OrderTab/OrderTab';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Order = () => {
   const categories=['salad ','pizza','soup','dessert','drinks']
   const {category}=useParams();
   const initialIndex=categories.indexOf(category)
-  const [tabIndex,setTabIndex]=useState(0)
+  const [tabIndex,setTabIndex]=useState(initialIndex)
   const [menu] = useMenu();
   
   console.log(category)
@@ -23,6 +24,10 @@ const Order = () => {
   const drinks=menu.filter(item=>item.category ==='drinks');
   return (
     <div>
+       <Helmet>
+        <title>Restaurant | Order Food</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
       <Cover img={orderCoverImg} title="Order Food"></Cover>
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
