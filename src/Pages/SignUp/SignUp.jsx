@@ -1,4 +1,5 @@
 
+import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 
 
@@ -15,6 +16,11 @@ const SignUp = () => {
   }
   console.log(watch("example"))
   return (
+   <>
+   <Helmet>
+        <title>Restaurant | Sign Up</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
@@ -63,12 +69,13 @@ const SignUp = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Signup</button>
+              <button className="btn btn-primary">Sign Up</button>
             </div>
           </form>
         </div>
       </div>
     </div>
+   </>
   );
 };
 
