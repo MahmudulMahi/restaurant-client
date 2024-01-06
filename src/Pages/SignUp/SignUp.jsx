@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const SignUp = () => {
@@ -10,17 +12,34 @@ const SignUp = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm()
 
-  const {createUser}=useContext(AuthContext)
+  const {createuser,updateUserProfile}=useContext(AuthContext)
+
+  const navigate=useNavigate()
 
   const onSubmit = (data) => {
     console.log(data)
-    createUser(data.email,data.password)
+    createuser(data.email,data.password)
     .then(result =>{
       const loggedUser=result.user
       console.log(loggedUser)
+      updateUserProfile(data.name,data.photoURL)
+      .then(()=>{
+        console.log('user profile update')
+        reset()
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "user created successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        navigate('/')
+      })
+      .catch(error=>console.log(error))
     })
   }
   console.log(watch("example"))
@@ -54,6 +73,13 @@ const SignUp = () => {
             </div>
             <div className="form-control">
               <label className="label">
+                <span className="label-text">Photo Url</span>
+              </label>
+              <input type="text" {...register("photoURL", { required: true })} placeholder="photo" className="input input-bordered" />
+              {errors.photoURL && <span>Photo Url is required</span>}
+            </div>
+            <div className="form-control">
+              <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input type="password" {...register("password", {
@@ -82,6 +108,7 @@ const SignUp = () => {
               {/* <button className="btn btn-primary">Sign Up</button> */}
             </div>
           </form>
+          <p><small>Already have an account <Link to="/login"> Log In</Link></small></p>
         </div>
       </div>
     </div>
