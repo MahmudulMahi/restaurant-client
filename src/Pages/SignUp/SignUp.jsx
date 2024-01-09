@@ -6,8 +6,12 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
+import userAxiosPublic from '../../hooks/userAxiosPublic';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
+
 
 const SignUp = () => {
+  const axiosPublic=userAxiosPublic()
   const {
     register,
     handleSubmit,
@@ -29,15 +33,26 @@ const SignUp = () => {
       updateUserProfile(data.name,data.photoURL)
       .then(()=>{
         console.log('user profile update')
-        reset()
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "user created successfully",
-          showConfirmButton: false,
-          timer: 1500
-        });
-        navigate('/')
+        const userInfo={
+          name:data.name,
+          email:data.email
+        }
+        axiosPublic.post('/users',userInfo)
+        .then(res=>{
+          if(res.data.insertedId){
+            console.log("useroiiiii")
+            reset()
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "user created successfully",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            navigate('/')
+          }
+        })
+       
       })
       .catch(error=>console.log(error))
     })
@@ -109,6 +124,10 @@ const SignUp = () => {
             </div>
           </form>
           <p><small>Already have an account <Link to="/login"> Log In</Link></small></p>
+          <div className="divider"></div>
+        <div className='p-8'>
+        <SocialLogin ></SocialLogin>
+        </div>
         </div>
       </div>
     </div>

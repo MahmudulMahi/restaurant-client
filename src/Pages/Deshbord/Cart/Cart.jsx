@@ -79,7 +79,9 @@ const Cart = () => {
           <th>
             <button onClick={() =>handleDelete(item._id)} className="btn btn-ghost btn-lg">
 
-            <MdDelete />
+            <div className='text-red-600'>
+            <MdDelete  />
+            </div>
             </button>
           </th>
         </tr>)
