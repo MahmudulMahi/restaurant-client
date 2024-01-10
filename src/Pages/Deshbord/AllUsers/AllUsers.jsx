@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+
 import useAxios from '../../../hooks/useAxios';
 import { MdDelete } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
@@ -11,7 +11,7 @@ const AllUsers = () => {
   const { data: users = [],refetch } = useQuery({
     queryKey: ['user'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/users')
+      const res = await axiosSecure.get('/users');
       return res.data
     }
   })
