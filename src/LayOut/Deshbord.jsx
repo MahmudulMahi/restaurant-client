@@ -1,14 +1,15 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaBook, FaCartArrowDown, FaEnvelope, FaList, FaSearch, FaUser, FaUtensilSpoon, FaVoicemail } from "react-icons/fa";
+import { FaBook, FaCartArrowDown, FaEnvelope, FaList, FaSearch, FaUser, FaUtensilSpoon, } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import useCart from '../hooks/useCart';
+import useAdmin from '../hooks/useAdmin';
 
 const Deshbord = () => {
   const [cart] = useCart()
 
-  const isAdmin = true
+  const [isAdmin] = useAdmin()
   return (
     <div className='flex '>
       <div className='w-64 min-h-screen bg-orange-400'>
