@@ -18,7 +18,7 @@ const Deshbord = () => {
             isAdmin ? <>
               <li><NavLink to='/dashboard/adminHome'> <FaHome /> ADmin Home</NavLink></li>
               <li><NavLink to='/dashboard/addItems'> <FaUtensilSpoon /> Add Items</NavLink></li>
-              <li><NavLink to='/dashboard/ManageItems'> <FaList /> Manage Items ({cart.length})</NavLink></li>
+              <li><NavLink to='/dashboard/manageItems'> <FaList /> Manage Items ({cart.length})</NavLink></li>
               <li><NavLink to='/dashboard/bookings'> <FaBook /> Manage Booking</NavLink></li>
               <li><NavLink to='/dashboard/user'> <FaUser /> All Users</NavLink></li>
             </>
