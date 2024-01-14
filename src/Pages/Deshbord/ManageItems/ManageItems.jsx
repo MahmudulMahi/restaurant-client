@@ -5,9 +5,10 @@ import { MdDelete } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxios from '../../../hooks/useAxios';
+import { Link } from 'react-router-dom';
 
 const ManageItems = () => {
-  const [menu] = useMenu()
+  const [menu,,refetch] = useMenu()
   const axiosSecure=useAxios()
 
   const handleDeleteItem =(item) => { 
@@ -23,11 +24,15 @@ const ManageItems = () => {
       if (result.isConfirmed) {
         const res=await axiosSecure.delete(`/menu/${item._id}`)
         console.log(res.data)
-        // Swal.fire({
-        //   title: "Deleted!",
-        //   text: "Your file has been deleted.",
-        //   icon: "success"
-        // });
+        if(res.data.deletedCount >0){
+         refetch()
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+        }
+      
       }
     });
   }
@@ -73,12 +78,14 @@ const ManageItems = () => {
                   </td>
                   <td>${item.price}</td>
                   <td>
+                    <Link to={`/dashboard/updateItem/${item._id}`}>
                     <button  className="btn  btn-lg bg-orange-200">
 
                       <div className='text-white text-2xl'>
                         <FaEdit />
                       </div>
                     </button>
+                    </Link>
                   </td>
                   <td>
                     <button onClick={() => handleDeleteItem(item)} className="btn  btn-lg bg-orange-300">
