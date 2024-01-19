@@ -24,11 +24,11 @@ const Deshbord = () => {
             </>
               :
               <>
-                <li><NavLink to='/dashboard/useHome'> <FaHome /> User Home</NavLink></li>
-                <li><NavLink to='/dashboard/reservation'> <FaCalendarAlt /> Reservation</NavLink></li>
+                <li><NavLink to='/dashboard/userHome'> <FaHome /> User Home</NavLink></li>
+                <li><NavLink to='/dashboard/History'> <FaCalendarAlt /> Payment History</NavLink></li>
                 <li><NavLink to='/dashboard/cart'> <FaCartArrowDown /> My Cart ({cart.length})</NavLink></li>
                 <li><NavLink to='/dashboard/review'> <FaCartArrowDown /> Add Review</NavLink></li>
-                <li><NavLink to='/dashboard/bookings'> <FaCartArrowDown /> My Bookings</NavLink></li>
+                <li><NavLink to='/dashboard/paymentHistory'> <FaCartArrowDown /> Payment History</NavLink></li>
               </>
           }
           <div className="divider"></div>
