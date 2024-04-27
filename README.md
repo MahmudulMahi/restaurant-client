@@ -38,14 +38,14 @@
 
 ## Environment Variables
 
-  VITE_apiKey=AIzaSyB-0gmj5IRQ7aE7ju4g7GLlNo-t3taMYtI
-  VITE_authDomain=reataurant-d1e09.firebaseapp.com
-  VITE_projectId=reataurant-d1e09
-  VITE_storageBucket=reataurant-d1e09.appspot.com
-  VITE_messagingSenderId=822617107163
-  VITE_appId=1:822617107163:web:fce4c3a6a573ef05a8fafe 
-  VITE_IMAGE_HOSTING_KEY=aa99f3711a288a1984963aa42894d689
-  VITE_Payment_Gatway_PK=pk_test_51OYPq0LpKo3FPetQZvwDwqbDDD5qeOZqJZOsKy0ZWWIjD36dgpH8ciuAIOLgAyJaqJABL4OgBPfF8efRz6eFDPnw00wpwllRKW
+  - VITE_apiKey=AIzaSyB-0gmj5IRQ7aE7ju4g7GLlNo-t3taMYtI
+  - VITE_authDomain=reataurant-d1e09.firebaseapp.com
+  - VITE_projectId=reataurant-d1e09
+  - VITE_storageBucket=reataurant-d1e09.appspot.com
+  - VITE_messagingSenderId=822617107163
+  - VITE_appId=1:822617107163:web:fce4c3a6a573ef05a8fafe 
+  - VITE_IMAGE_HOSTING_KEY=aa99f3711a288a1984963aa42894d689
+  - VITE_Payment_Gatway_PK=pk_test_51OYPq0LpKo3FPetQZvwDwqbDDD5qeOZqJZOsKy0ZWWIjD36dgpH8ciuAIOLgAyJaqJABL4OgBPfF8efRz6eFDPnw00wpwllRKW
 
 ## How to Run
 
