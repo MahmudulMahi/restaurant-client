@@ -36,7 +36,7 @@
 2. Navigate to the project directory: `cd your-project-directory`
 3. Install dependencies: `npm install` 
 
-## Configuration
+## Environment Variables
 
   VITE_apiKey=AIzaSyB-0gmj5IRQ7aE7ju4g7GLlNo-t3taMYtI
   VITE_authDomain=reataurant-d1e09.firebaseapp.com
